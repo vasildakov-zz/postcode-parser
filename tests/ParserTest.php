@@ -7,6 +7,10 @@ use VasilDakov\Postcode\Parser;
 
 class ParserTest extends \PHPUnit_Framework_TestCase
 {
+    private $value;
+
+    private $postcode;
+
     public function setUp()
     {
         $this->value    = 'AA9A 9AA';

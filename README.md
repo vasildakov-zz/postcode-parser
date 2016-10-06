@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/vasildakov/postcode-parser.svg?branch=master)](https://travis-ci.org/vasildakov/postcode-parser)
 [![Coverage Status](https://coveralls.io/repos/github/vasildakov/postcode-parser/badge.svg?branch=master)](https://coveralls.io/github/vasildakov/postcode-parser?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vasildakov/postcode-parser/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vasildakov/postcode-parser/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/vasildakov/postcode-parser/v/stable)](https://packagist.org/packages/vasildakov/postcode-parser)
 [![Total Downloads](https://poser.pugx.org/vasildakov/postcode-parser/downloads)](https://packagist.org/packages/vasildakov/postcode-parser)
 [![License](https://poser.pugx.org/vasildakov/postcode-parser/license)](https://packagist.org/packages/vasildakov/postcode-parser)
