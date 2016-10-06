@@ -129,5 +129,4 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         self::assertArrayHasKey('sector', $array);
         self::assertArrayHasKey('unit', $array);
     }
-
 }
