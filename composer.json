@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "php": ">=5.4",
+        "php": ">=5.6",
         "vasildakov/postcode": "^1.1"
     },
     "require-dev": {

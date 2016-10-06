@@ -38,7 +38,7 @@ class Parser implements ParserInterface
     /**
      * Regular expression pattern for Unit code
      */
-    const UNIT =  "/[A-Za-z]{2}$/i";
+    const UNIT = "/[A-Za-z]{2}$/i";
 
 
     /**
