@@ -12,7 +12,7 @@
 
     <testsuites>
         <testsuite name="Postcode Parser Test Suite">
-            <directory>./test/</directory>
+            <directory>./tests/</directory>
         </testsuite>
     </testsuites>
     <filter>

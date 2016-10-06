@@ -20,14 +20,24 @@ interface ParserInterface
     public function inward();
 
     /**
+     * @return string $area
+     */
+    public function area();
+
+    /**
      * @return string $district
      */
     public function district();
 
     /**
-     * @return string $area
+     * @return string $subdistrict
      */
-    public function area();
+    public function subdistrict();
+
+    /**
+     * @return string $sector
+     */
+    public function sector();
 
     /**
      * @return string $unit
@@ -38,5 +48,4 @@ interface ParserInterface
      * @return array
      */
     public function parse();
-
 }
