@@ -7,44 +7,44 @@
  */
 namespace VasilDakov\Postcode;
 
-use VasilDakov\Postcode\Postcode;
+use VasilDakov\Postcode\PostcodeInterface;
 
 class Parser implements ParserInterface
 {
     /**
      * Regular expression pattern for Outward code
      */
-    const OUTWARD     = "/\d[A-Za-z]{1,2}$/i";
+    const OUTWARD = "/\d[A-Za-z]{1,2}$/i";
 
 
     /**
      * Regular expression pattern for Inward code
      */
-    const INWARD      = "/\d[A-Za-z]{2}$/i";
+    const INWARD = "/\d[A-Za-z]{2}$/i";
 
 
     /**
      * Regular expression pattern for Area code
      */
-    const AREA        = "/^[A-Za-z]{1,2}/i";
+    const AREA = "/^[A-Za-z]{1,2}/i";
 
 
     /**
      * Regular expression pattern for Sector code
      */
-    const SECTOR      = "/^[A-Za-z]{1,2}\d[A-Za-z\d]?\s*\d/i";
+    const SECTOR = "/^[A-Za-z]{1,2}\d[A-Za-z\d]?\s*\d/i";
 
 
     /**
      * Regular expression pattern for Unit code
      */
-    const UNIT        =  "/[A-Za-z]{2}$/i";
+    const UNIT =  "/[A-Za-z]{2}$/i";
 
 
     /**
      * Regular expression pattern for District code
      */
-    const DISTRICT    = "/^([A-Za-z]{1,2}\d)([A-Za-z])$/i";
+    const DISTRICT = "/^([A-Za-z]{1,2}\d)([A-Za-z])$/i";
 
 
     /**
@@ -64,7 +64,7 @@ class Parser implements ParserInterface
      *
      * @param Postcode $postcode
      */
-    public function __construct(Postcode $postcode)
+    public function __construct(PostcodeInterface $postcode)
     {
         $this->postcode = (string)$postcode;
     }
@@ -134,6 +134,14 @@ class Parser implements ParserInterface
      */
     public function parse()
     {
-        return [];
+        return [
+            'outward' => $this->outward(),
+            'inward' => $this->inward(),
+            'area' => $this->area(),
+            'district' => $this->district(),
+            'subdistrict' => $this->subdistrict(),
+            'sector' => $this->sector(),
+            'unit' => $this->unit()
+        ];
     }
 }
