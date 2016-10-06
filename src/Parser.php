@@ -109,9 +109,9 @@ class Parser implements ParserInterface
      */
     public function subdistrict()
     {
-        return (\preg_match(self::REGEXP_SUBDISTRICT, $this->outward(), $matches)) ? $matches[0] : "";
+        return (\preg_match(self::SUBDISTRICT, $this->outward(), $matches)) ? $matches[0] : "";
     }
-    
+
     /**
      * @return string $sector
      */
