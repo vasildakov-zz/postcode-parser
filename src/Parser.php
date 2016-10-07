@@ -7,7 +7,8 @@
  */
 namespace VasilDakov\Postcode;
 
-use VasilDakov\Postcode\PostcodeInterface;
+use VasilDakov\Postcode\Validator;
+use VasilDakov\Postcode\Exception;
 
 class Parser implements ParserInterface
 {
@@ -54,19 +55,34 @@ class Parser implements ParserInterface
 
 
     /**
-     * Postcode $postcode
+     * string $postcode
      */
     private $postcode;
 
+    /**
+     * Validator $validator
+     */
+    private $validator;
 
     /**
      * Constructor
      *
-     * @param Postcode $postcode
+     * @param string $postcode
+     * @param Validator $validator
      */
-    public function __construct(PostcodeInterface $postcode)
+    public function __construct($postcode, Validator $validator = null)
     {
-        $this->postcode = (string)$postcode;
+        if (null === $validator) {
+            $validator = new Validator;
+        }
+
+        $this->validator = $validator;
+
+        if (!$this->validator->isValid($postcode)) {
+            throw new Exception\InvalidPostcodeException;
+        }
+
+        $this->postcode = $postcode;
     }
 
     /**

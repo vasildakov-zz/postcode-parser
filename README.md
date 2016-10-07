@@ -20,14 +20,17 @@ composer require vasildakov/postcode-parser
 
 ```php
 <?php
-use VasilDakov\Postcode\Postcode;
 use VasilDakov\Postcode\Parser;
 
-$parser = new Parser(new Postcode('AA9A 9AA'));
+$parser = new Parser('AA9A 9AA');
 
 var_dump($parser->outward()); // AA9A
 
 var_dump($parser->inward()); // 9AA
+
+$components = $parser->parse(); // array
+
+
 
 ```
 

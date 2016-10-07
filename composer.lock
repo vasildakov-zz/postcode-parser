@@ -4,21 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "05107b922cd71e7f0c852b70e71f843c",
-    "content-hash": "72ff32950f06ddbcd4abf038081859e6",
+    "hash": "1cd26deb1119d1326e52b0501d711800",
     "packages": [
         {
-            "name": "vasildakov/postcode",
-            "version": "1.1.6",
+            "name": "vasildakov/postcode-validator",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/vasildakov/postcode.git",
-                "reference": "17e66996161931758ceffc79fd78c67558f570f3"
+                "url": "https://github.com/vasildakov/postcode-validator.git",
+                "reference": "375dc4094d30f7d4b87c330919775a0890bb8060"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vasildakov/postcode/zipball/17e66996161931758ceffc79fd78c67558f570f3",
-                "reference": "17e66996161931758ceffc79fd78c67558f570f3",
+                "url": "https://api.github.com/repos/vasildakov/postcode-validator/zipball/375dc4094d30f7d4b87c330919775a0890bb8060",
+                "reference": "375dc4094d30f7d4b87c330919775a0890bb8060",
                 "shasum": ""
             },
             "require": {
@@ -46,15 +45,16 @@
                     "email": "vasildakov@gmail.com"
                 }
             ],
-            "description": "UK Postcode",
-            "homepage": "https://github.com/vasildakov/postcode",
+            "description": "UK Postcode Validator",
+            "homepage": "https://github.com/vasildakov/postcode-validator",
             "keywords": [
                 "php",
                 "post",
                 "postcode",
-                "uk"
+                "uk",
+                "validator"
             ],
-            "time": "2016-10-04 10:30:32"
+            "time": "2016-10-06 00:28:11"
         }
     ],
     "packages-dev": [
@@ -2023,7 +2023,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.4"
+        "php": ">=5.6"
     },
     "platform-dev": []
 }

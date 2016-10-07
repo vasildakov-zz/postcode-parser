@@ -2,7 +2,6 @@
 
 namespace VasilDakov\Tests;
 
-use VasilDakov\Postcode\Postcode;
 use VasilDakov\Postcode\Parser;
 
 class ParserTest extends \PHPUnit_Framework_TestCase
@@ -12,15 +11,9 @@ class ParserTest extends \PHPUnit_Framework_TestCase
      */
     private $value;
 
-    /**
-     * @var Postcode $postcode
-     */
-    private $postcode;
-
     public function setUp()
     {
-        $this->value    = 'AA9A 9AA';
-        $this->postcode = new Postcode('AA9A 9AA');
+        $this->value  = 'AA9A 9AA';
     }
 
     /**
@@ -29,9 +22,20 @@ class ParserTest extends \PHPUnit_Framework_TestCase
      */
     public function parserCanBeConstructedWithPostcode()
     {
-        $parser = new Parser(new Postcode('AA9A 9AA'));
+        $parser = new Parser('AA9A 9AA');
         self::assertInstanceOf(Parser::class, $parser);
     }
+
+    /**
+     * @test
+     * @covers \VasilDakov\Postcode\Parser::__construct
+     * @expectedException \VasilDakov\Postcode\Exception\InvalidPostcodeException
+     */
+    public function parserThrowsAnExceptionWithImvalidPostcode()
+    {
+        $parser = new Parser('ABC1 XYZ2');
+    }
+
 
     /**
      * @test
@@ -39,7 +43,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
      */
     public function canReturnOutwardCode()
     {
-        self::assertEquals('AA9A', (new Parser(new Postcode('AA9A 9AA')))->outward());
+        self::assertEquals('AA9A', (new Parser('AA9A 9AA'))->outward());
     }
 
 
@@ -49,7 +53,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
      */
     public function canReturnInwardCode()
     {
-        self::assertEquals('9AA', (new Parser(new Postcode('AA9A 9AA')))->inward());
+        self::assertEquals('9AA', (new Parser('AA9A 9AA'))->inward());
     }
 
 
@@ -59,9 +63,9 @@ class ParserTest extends \PHPUnit_Framework_TestCase
      */
     public function canReturnAreaCode()
     {
-        self::assertEquals('AA', (new Parser(new Postcode('AA9A 9AA')))->area());
+        self::assertEquals('AA', (new Parser('AA9A 9AA'))->area());
 
-        self::assertEquals('A', (new Parser(new Postcode('A9A 9AA')))->area());
+        self::assertEquals('A', (new Parser('A9A 9AA'))->area());
     }
 
 
@@ -71,9 +75,9 @@ class ParserTest extends \PHPUnit_Framework_TestCase
      */
     public function canReturnDistrictCode()
     {
-        self::assertEquals('AA9', (new Parser(new Postcode('AA9A 9AA')))->district());
+        self::assertEquals('AA9', (new Parser('AA9A 9AA'))->district());
 
-        self::assertEquals('A9', (new Parser(new Postcode('A9A 9AA')))->district());
+        self::assertEquals('A9', (new Parser('A9A 9AA'))->district());
     }
 
     /**
@@ -82,11 +86,11 @@ class ParserTest extends \PHPUnit_Framework_TestCase
      */
     public function canReturnSubdistrictCode()
     {
-        self::assertEquals('AA9A', (new Parser(new Postcode('AA9A 9AA')))->subdistrict());
+        self::assertEquals('AA9A', (new Parser('AA9A 9AA'))->subdistrict());
 
-        self::assertEquals('A9A', (new Parser(new Postcode('A9A 9AA')))->subdistrict());
+        self::assertEquals('A9A', (new Parser('A9A 9AA'))->subdistrict());
 
-        self::assertEquals('', (new Parser(new Postcode('A9 9AA')))->subdistrict());
+        self::assertEquals('', (new Parser('A9 9AA'))->subdistrict());
     }
 
     /**
@@ -95,9 +99,9 @@ class ParserTest extends \PHPUnit_Framework_TestCase
      */
     public function canReturnSectorCode()
     {
-        self::assertEquals('AA9A 9', (new Parser(new Postcode('AA9A 9AA')))->sector());
+        self::assertEquals('AA9A 9', (new Parser('AA9A 9AA'))->sector());
 
-        self::assertEquals('A9A 9', (new Parser(new Postcode('A9A 9AA')))->sector());
+        self::assertEquals('A9A 9', (new Parser('A9A 9AA'))->sector());
     }
 
     /**
@@ -106,9 +110,9 @@ class ParserTest extends \PHPUnit_Framework_TestCase
      */
     public function canReturnUnitCode()
     {
-        self::assertEquals('AA', (new Parser(new Postcode('AA9A 9AA')))->unit());
+        self::assertEquals('AA', (new Parser('AA9A 9AA'))->unit());
 
-        self::assertEquals('AA', (new Parser(new Postcode('A9A 9AA')))->unit());
+        self::assertEquals('AA', (new Parser('A9A 9AA'))->unit());
     }
 
     /**
@@ -117,7 +121,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
      */
     public function canParsePostcode()
     {
-        $array = (new Parser(new Postcode('AA9A 9AA')))->parse();
+        $array = (new Parser('AA9A 9AA'))->parse();
 
         self::assertInternalType('array', $array);
 
